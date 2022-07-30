@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		547C871E288A3E2700C8B0F9 /* TextViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547C871D288A3E2700C8B0F9 /* TextViews.swift */; };
+		547C8722288A4F9E00C8B0F9 /* Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547C8721288A4F9E00C8B0F9 /* Shapes.swift */; };
 		549BBE5728850059000947A0 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549BBE5628850059000947A0 /* Game.swift */; };
 		549BBE5F2885148B000947A0 /* BullseyeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549BBE5E2885148B000947A0 /* BullseyeTests.swift */; };
 		54B81279281F56E40066B54C /* BullseyeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B81278281F56E40066B54C /* BullseyeApp.swift */; };
@@ -26,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		547C871D288A3E2700C8B0F9 /* TextViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViews.swift; sourceTree = "<group>"; };
+		547C8721288A4F9E00C8B0F9 /* Shapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shapes.swift; sourceTree = "<group>"; };
 		549BBE5628850059000947A0 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		549BBE5C2885148B000947A0 /* BullseyeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BullseyeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		549BBE5E2885148B000947A0 /* BullseyeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BullseyeTests.swift; sourceTree = "<group>"; };
@@ -66,6 +70,8 @@
 			isa = PBXGroup;
 			children = (
 				54B8127A281F56E40066B54C /* ContentView.swift */,
+				547C871D288A3E2700C8B0F9 /* TextViews.swift */,
+				547C8721288A4F9E00C8B0F9 /* Shapes.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -233,6 +239,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				54B8127B281F56E40066B54C /* ContentView.swift in Sources */,
+				547C871E288A3E2700C8B0F9 /* TextViews.swift in Sources */,
+				547C8722288A4F9E00C8B0F9 /* Shapes.swift in Sources */,
 				549BBE5728850059000947A0 /* Game.swift in Sources */,
 				54B81279281F56E40066B54C /* BullseyeApp.swift in Sources */,
 			);
