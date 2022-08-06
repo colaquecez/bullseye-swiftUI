@@ -15,7 +15,7 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
-            Color("BackgroundColor").ignoresSafeArea(.all)
+            BackgroundView(game: $game)
             VStack {
                 InstructionsView(game: $game)
                 SliderView(sliderValue: $sliderValue)
@@ -55,11 +55,10 @@ struct ContentView: View {
         static var previews: some View {
             Group {
                 ContentView()
-                    .preferredColorScheme(.dark)
                     .previewDevice("iPhone 12 Pro")
                 
             }
-            ContentView().previewLayout(.fixed(width: 568, height: 268))
+            ContentView().previewLayout(.fixed(width: 568, height: 368))
         }
     }
     
