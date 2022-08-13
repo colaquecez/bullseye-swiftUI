@@ -68,16 +68,23 @@ struct ContentView: View {
         @Binding var game: Game
         
         var body: some View {
+            let points = game.points(sliderValue: Int(sliderValue))
+            
             Button(action: {
                 alertIsVisible = true
+              
             }) {
                 Text("Hit me".uppercased()).bold().font(.title3)
             }.alert("Hello There", isPresented: $alertIsVisible) {
-                Button("Awesome!") {}
+                Button("Awesome!") {
+                    game.startNewRound(point: points )
+                }
             } message: {
                 let roundedValue = Int(sliderValue.rounded())
                 
-                Text("You scored \(game.points(sliderValue: roundedValue)) ")
+                
+                Text("The slider's value is \(Int(roundedValue)). You scored \(points) points this round.")
+                
             }.padding(20).background(
                 ZStack {
                     Color("ButtonColor")

@@ -9,10 +9,15 @@ import SwiftUI
 
 struct RoundedImageViewStroked: View {
     var systemName: String
+    var action: () -> Void
     
     var body: some View {
         
-        Image(systemName: systemName).font(.title).foregroundColor(Color("TextColor")).frame(width: 50, height: 50).overlay(Circle().strokeBorder(Color("ButtonStrokeColor"), lineWidth: 2))
+        Button(action: action) {
+            Image(systemName: systemName).font(.title).foregroundColor(Color("TextColor")).frame(width: 50, height: 50).overlay(Circle().strokeBorder(Color("ButtonStrokeColor"), lineWidth: 2))
+        }
+        
+        
     }
 }
 
@@ -36,7 +41,7 @@ struct RoundRectTextView: View {
 struct PreviewView: View {
     var body: some View {
         VStack() {
-            RoundedImageViewStroked(systemName: "arrow.counterclockwise")
+            RoundedImageViewStroked(systemName: "arrow.counterclockwise", action: {print("click buton")})
             RoundedImageViewFilled(systemName: "arrow.counterclockwise")
             RoundRectTextView(text: "999")
         }
