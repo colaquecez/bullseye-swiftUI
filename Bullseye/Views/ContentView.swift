@@ -18,9 +18,16 @@ struct ContentView: View {
             BackgroundView(game: $game)
             VStack {
                 InstructionsView(game: $game)
-                SliderView(sliderValue: $sliderValue)
-                HitMeButton(alertIsVisible: $alertIsVisible, sliderValue: $sliderValue, game: $game)
+                    .padding([.bottom], alertIsVisible ? 0 : 100)
+                
+                if alertIsVisible {
+                    PointsViews(game: $game, sliderValue: $sliderValue, alertIsVisible: $alertIsVisible)
+                } else {
+                    HitMeButton(alertIsVisible: $alertIsVisible, sliderValue: $sliderValue, game: $game).transition(.scale) 
+                }
             }
+            
+            !alertIsVisible ? SliderView(sliderValue: $sliderValue).transition(.scale) : nil
         }
     }
     
@@ -51,50 +58,40 @@ struct ContentView: View {
         }
     }
     
-    struct ContentView_Previews: PreviewProvider {
-        static var previews: some View {
-            Group {
-                ContentView()
-                    .previewDevice("iPhone 12 Pro")
-                
-            }
-            ContentView().previewLayout(.fixed(width: 568, height: 368))
-        }
-    }
-    
     struct HitMeButton: View {
         @Binding var alertIsVisible: Bool
         @Binding var sliderValue: Double
         @Binding var game: Game
         
         var body: some View {
-            let points = game.points(sliderValue: Int(sliderValue))
             
             Button(action: {
-                alertIsVisible = true
-              
+                withAnimation{
+                    alertIsVisible = true
+                }
             }) {
                 Text("Hit me".uppercased()).bold().font(.title3)
-            }.alert("Hello There", isPresented: $alertIsVisible) {
-                Button("Awesome!") {
-                    game.startNewRound(point: points )
-                }
-            } message: {
-                let roundedValue = Int(sliderValue.rounded())
-                
-                
-                Text("The slider's value is \(Int(roundedValue)). You scored \(points) points this round.")
-                
             }.padding(20).background(
                 ZStack {
                     Color("ButtonColor")
                     LinearGradient(gradient: Gradient(colors: [Color.white.opacity(0.3), Color.clear]), startPoint: .top, endPoint: .bottom)
                 }
-            ).foregroundColor(.white).cornerRadius(21)
+            ).foregroundColor(.white).cornerRadius(Constants.General.roundRectCornerRadius)
                 .overlay(
-                    RoundedRectangle(cornerRadius: 21.0)
-                        .strokeBorder(Color.white, lineWidth: 2.0)
+                    RoundedRectangle(cornerRadius: Constants.General.roundRectCornerRadius)
+                        .strokeBorder(Color.white, lineWidth: Constants.General.strokeWidth)
                 )
         }
+    }
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+            ContentView()
+                .previewDevice("iPhone 12 Pro")
+            
+        }
+        ContentView().previewLayout(.fixed(width: 568, height: 368))
     }
 }

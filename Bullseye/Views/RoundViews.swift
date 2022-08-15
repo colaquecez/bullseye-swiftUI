@@ -14,10 +14,14 @@ struct RoundedImageViewStroked: View {
     var body: some View {
         
         Button(action: action) {
-            Image(systemName: systemName).font(.title).foregroundColor(Color("TextColor")).frame(width: 50, height: 50).overlay(Circle().strokeBorder(Color("ButtonStrokeColor"), lineWidth: 2))
+            Image(systemName: systemName)
+                .font(.title)
+                .foregroundColor(Color("TextColor"))
+                .frame(width: Constants.General.roudendViewLength, height: Constants.General.roudendViewLength)
+                .overlay(
+                    Circle()
+                        .strokeBorder(Color("ButtonStrokeColor"), lineWidth: Constants.General.strokeWidth))
         }
-        
-        
     }
 }
 
@@ -26,7 +30,12 @@ struct RoundedImageViewFilled: View {
     
     var body: some View {
         
-        Image(systemName: systemName).font(.title).foregroundColor(Color("ButtonFilledTextColor")).frame(width: 50, height: 50).background(Circle().fill(Color("ButtonFilledBackgroundColor")))
+        Image(systemName: systemName)
+            .font(.title)
+            .foregroundColor(Color("ButtonFilledTextColor"))
+            .frame(width: Constants.General.roudendViewLength, height: Constants.General.roudendViewLength)
+            .background(Circle()
+                .fill(Color("ButtonFilledBackgroundColor")))
     }
 }
 
@@ -34,7 +43,13 @@ struct RoundRectTextView: View {
     var text: String
     
     var body: some View {
-        Text(text).font(.title2).bold().kerning(-0.2).foregroundColor(Color("TextColor")).frame(width: 68, height: 56).overlay(RoundedRectangle(cornerRadius: 21.0).strokeBorder(Color("ButtonStrokeColor"), lineWidth: 2))
+        Text(text)
+            .font(.title2)
+            .bold()
+            .kerning(-0.2)
+            .foregroundColor(Color("TextColor"))
+            .frame(width: Constants.General.roundRectViewWidth, height: Constants.General.roundRectViewHeight)
+            .overlay(RoundedRectangle(cornerRadius: Constants.General.roundRectCornerRadius).strokeBorder(Color("ButtonStrokeColor"), lineWidth: Constants.General.strokeWidth))
     }
 }
 
